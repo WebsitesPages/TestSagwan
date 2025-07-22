@@ -31,7 +31,7 @@
 <body class="font-sans text-gray-900 scroll-smooth">
 
   <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 backdrop-blur-sm transition-colors text-white">
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-40 backdrop-blur-sm transition-colors text-white">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between relative">
 
       <!-- Logo -->
@@ -44,21 +44,21 @@
         <i id="menu-icon" class="fas fa-bars"></i>
       </button>
 
-      <!-- Menü -->
-      <ul id="menu"
-          class="hidden fixed inset-0 z-40 flex flex-col items-center justify-center text-center gap-8 bg-white/95 text-gray-900
-                 uppercase text-xl font-medium tracking-wide overflow-y-auto
-                 md:static md:flex md:flex-row md:items-center md:gap-8 md:bg-transparent md:text-inherit md:text-sm">
-
-        <li><a href="#about"    class="block py-2 hover:text-accent">Über&nbsp;Uns</a></li>
-        <li><a href="#pricing"  class="block py-2 hover:text-accent">Preise</a></li>
-        <li><a href="#reviews"  class="block py-2 hover:text-accent">Bewertungen</a></li>
-        <li><a href="#location" class="block py-2 hover:text-accent">Anfahrt</a></li>
-        <li><a href="#social"   class="block py-2 hover:text-accent">Folge&nbsp;Uns</a></li>
-      </ul>
-
     </div>
   </nav>
+
+  <!-- Overlay-Menü -->
+  <ul id="menu"
+      class="hidden fixed inset-0 z-50 pt-24 flex flex-col items-center justify-start text-center gap-8 bg-white/95 text-gray-900
+             uppercase text-xl font-medium tracking-wide overflow-y-auto
+             md:static md:z-auto md:pt-0 md:flex md:flex-row md:items-center md:gap-8 md:bg-transparent md:text-inherit md:text-sm">
+
+    <li><a href="#about"    class="block py-2 hover:text-accent">Über&nbsp;Uns</a></li>
+    <li><a href="#pricing"  class="block py-2 hover:text-accent">Preise</a></li>
+    <li><a href="#reviews"  class="block py-2 hover:text-accent">Bewertungen</a></li>
+    <li><a href="#location" class="block py-2 hover:text-accent">Anfahrt</a></li>
+    <li><a href="#social"   class="block py-2 hover:text-accent">Folge&nbsp;Uns</a></li>
+  </ul>
 
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white">
