@@ -26,39 +26,47 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Fix: verhindert seitliches Scrollen durch Overlay -->
+  <style>html,body{overflow-x:hidden;}</style>
 </head>
 
 <body class="font-sans text-gray-900 scroll-smooth">
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-40 backdrop-blur-sm transition-colors text-white">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between relative">
+  <!-- ============ NAVIGATION (neu kombiniert) ============ -->
+  <nav id="navbar"
+       class="fixed top-0 left-0 w-full z-50 backdrop-blur-sm transition-colors text-white">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="#hero" class="text-3xl font-brand tracking-wide flex items-center hover:text-accent transition-colors">
+      <a href="#hero" class="text-3xl font-brand flex items-center hover:text-accent">
         <span class="text-accent">HD</span><span class="ml-1">Haircut</span>
       </a>
 
-      <!-- Burger / Close Button -->
-      <button id="menu-btn" class="md:hidden text-inherit text-3xl focus:outline-none relative z-50" aria-label="Menü" aria-expanded="false">
+      <!-- Burger / Close -->
+      <button id="menu-btn"
+              class="md:hidden text-3xl focus:outline-none"
+              aria-expanded="false" aria-label="Menü umschalten">
         <i id="menu-icon" class="fas fa-bars"></i>
       </button>
 
+      <!-- Gemeinsame UL: Desktop = inline, Mobile = Overlay -->
+      <ul id="menu"
+          class="hidden fixed inset-0 z-50 pt-24 flex flex-col items-center gap-8
+                 bg-white/95 text-gray-900 uppercase text-xl font-medium tracking-wide
+                 md:static md:flex md:flex-row md:gap-8 md:bg-transparent md:text-sm md:pt-0 md:ml-auto">
+
+        <li><a href="#about"    class="block py-2 hover:text-accent">Über&nbsp;Uns</a></li>
+        <li><a href="#pricing"  class="block py-2 hover:text-accent">Preise</a></li>
+        <li><a href="#reviews"  class="block py-2 hover:text-accent">Bewertungen</a></li>
+        <li><a href="#team"  class="block py-2 hover:text-accent">Team</a></li>
+        <li><a href="#location" class="block py-2 hover:text-accent">Anfahrt</a></li>
+        <li><a href="#social"   class="block py-2 hover:text-accent">Folge&nbsp;Uns</a></li>
+      </ul>
+
     </div>
   </nav>
-
-  <!-- Overlay-Menü -->
-  <ul id="menu"
-      class="hidden fixed inset-0 z-50 pt-24 flex flex-col items-center justify-start text-center gap-8 bg-white/95 text-gray-900
-             uppercase text-xl font-medium tracking-wide overflow-y-auto
-             md:static md:z-auto md:pt-0 md:flex md:flex-row md:items-center md:gap-8 md:bg-transparent md:text-inherit md:text-sm">
-
-    <li><a href="#about"    class="block py-2 hover:text-accent">Über&nbsp;Uns</a></li>
-    <li><a href="#pricing"  class="block py-2 hover:text-accent">Preise</a></li>
-    <li><a href="#reviews"  class="block py-2 hover:text-accent">Bewertungen</a></li>
-    <li><a href="#location" class="block py-2 hover:text-accent">Anfahrt</a></li>
-    <li><a href="#social"   class="block py-2 hover:text-accent">Folge&nbsp;Uns</a></li>
-  </ul>
+  <!-- ============ /NAVIGATION ============ -->
 
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white">
@@ -77,7 +85,7 @@
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-4xl font-brand mb-6 text-gray-900">Über Uns</h2>
       <p class="text-lg leading-relaxed text-gray-700">
-        Willkommen in unserem einzigartigen Friseursalon für junge Menschen! Bei uns erwarten dich professionelle Haarschnitte in entspannter Atmosphäre.
+        Willkommen in unserem einzigartigen Friseursalon – bei uns erwarten dich professionelle Haarschnitte in entspannter Atmosphäre.
       </p>
       <p class="mt-6 text-lg leading-relaxed text-gray-700">
         Unser Team bringt deinen Look auf das nächste Level – egal ob trendig oder klassisch.
@@ -90,47 +98,40 @@
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-brand text-center mb-12 text-gray-900">Preise</h2>
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
         <!-- Hair -->
         <article class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
           <h3 class="text-2xl font-brand text-accent mb-4">Haare</h3>
           <ul class="space-y-2">
-            <li class="flex justify-between"><span>Schneiden</span><span>22&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Waschen, Schneiden, Stylen</span><span>25&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Kopfrasur / Maschinenschnitt</span><span>20&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Färben / Strähnen</span><span>35&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Augenbrauen zupfen</span><span>10&nbsp;€</span></li>
+            <li class="flex justify-between"><span>Schneiden</span><span>22 €</span></li>
+            <li class="flex justify-between"><span>Waschen, Schneiden, Stylen</span><span>25 €</span></li>
+            <li class="flex justify-between"><span>Kopfrasur / Maschine</span><span>20 €</span></li>
+            <li class="flex justify-between"><span>Färben / Strähnen</span><span>35 €</span></li>
+            <li class="flex justify-between"><span>Augenbrauen zupfen</span><span>10 €</span></li>
           </ul>
         </article>
-
         <!-- Beard -->
         <article class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
           <h3 class="text-2xl font-brand text-accent mb-4">Bart</h3>
           <ul class="space-y-2">
-            <li class="flex justify-between"><span>Bartmodell</span><span>15&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Bartrasur</span><span>15&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Bart färben</span><span>20&nbsp;€</span></li>
-            <li class="flex justify-between"><span>Ohren &amp; Nase Wax</span><span>14&nbsp;€</span></li>
+            <li class="flex justify-between"><span>Bartmodell</span><span>15 €</span></li>
+            <li class="flex justify-between"><span>Bartrasur</span><span>15 €</span></li>
+            <li class="flex justify-between"><span>Bart färben</span><span>20 €</span></li>
+            <li class="flex justify-between"><span>Ohren & Nase Wax</span><span>14 €</span></li>
           </ul>
         </article>
-
         <!-- Specials -->
         <article class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
           <h3 class="text-2xl font-brand text-accent mb-4">Specials</h3>
-          <p class="text-gray-600">
-            Auf der Suche nach einem komplett neuen Look? Sprich uns einfach an – wir beraten dich gern!
-          </p>
+          <p class="text-gray-600">Auf der Suche nach einem komplett neuen Look? Sprich uns an – wir beraten dich gern!</p>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- Google Reviews -->
+  <!-- Reviews -->
   <section id="reviews" class="py-20 bg-white scroll-mt-32">
     <div class="container mx-auto px-4 text-center max-w-5xl">
       <h2 class="text-4xl font-brand mb-8 text-gray-900">Google-Bewertungen</h2>
-
       <div class="flex flex-col md:flex-row items-center justify-center gap-3 mb-10">
         <span class="text-4xl font-bold">4,9</span>
         <div class="flex text-accent text-2xl">
@@ -138,39 +139,78 @@
         </div>
         <span class="text-gray-600 text-sm">(300+ Bewertungen)</span>
       </div>
-
       <div class="grid gap-6 md:grid-cols-3 text-left">
-        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow">
-          <p class="italic leading-relaxed">“Super freundliches Team und top Haarschnitt! Komme immer wieder gern.”</p>
-          <footer class="mt-4 text-sm font-semibold">– Max M.</footer>
-        </blockquote>
-        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow">
-          <p class="italic leading-relaxed">“Bester Barbershop in München, klasse Preis-Leistung und coole Atmosphäre.”</p>
-          <footer class="mt-4 text-sm font-semibold">– Lisa K.</footer>
-        </blockquote>
-        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow">
-          <p class="italic leading-relaxed">“Spontan vorbeigekommen, null Wartezeit und mega Ergebnis. Empfehlung!”</p>
-          <footer class="mt-4 text-sm font-semibold">– Denis S.</footer>
-        </blockquote>
+        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow italic">„Super freundliches Team und top Haarschnitt!“<footer class="mt-4 text-sm font-semibold">– Max M.</footer></blockquote>
+        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow italic">„Bester Barbershop in München – klasse Preis-Leistung!“<footer class="mt-4 text-sm font-semibold">– Lisa K.</footer></blockquote>
+        <blockquote class="bg-gray-100 p-6 rounded-2xl shadow italic">„Spontan vorbeigekommen, null Wartezeit!“<footer class="mt-4 text-sm font-semibold">– Denis S.</footer></blockquote>
       </div>
-
       <a href="https://g.co/kgs/47PebQt" target="_blank" rel="noopener"
          class="inline-flex items-center mt-10 px-6 py-3 bg-accent text-black font-medium rounded-full hover:bg-yellow-400 transition">
-        Alle Bewertungen auf Google ansehen&nbsp;<i class="fas fa-arrow-up-right-from-square ml-2"></i>
+        Alle Bewertungen auf Google ansehen <i class="fas fa-arrow-up-right-from-square ml-2"></i>
       </a>
     </div>
   </section>
+<!-- Team / Barber Cards -->
+<section id="team" class="py-20 bg-gray-100 scroll-mt-32">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-brand text-center mb-12 text-gray-900">Das Team</h2>
 
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <!-- Sagwan -->
+      <article class="group card-shimmer bg-white rounded-2xl shadow-md hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+        <img src="barber1.jpg" alt="Barber Alex" class="w-40 h-40 rounded-full object-cover shadow mb-6" />
+        <h3 class="text-2xl font-brand mb-1">Sagwan</h3>
+        <p class="text-sm text-gray-500 mb-4">Besitzer</p>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Präzise Fades & moderne Cuts.<br>„Ein Schnitt = Selbstvertrauen.“
+        </p>
+      </article>
+
+      <!-- Mustafa -->
+      <article class="group card-shimmer bg-white rounded-2xl shadow-md hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+        <img src="barber2.jpg" alt="Barber Samira" class="w-40 h-40 rounded-full object-cover shadow mb-6" />
+        <h3 class="text-2xl font-brand mb-1">Mustafa</h3>
+        <p class="text-sm text-gray-500 mb-4">Mitarbeiter</p>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Kreative Schnitte – perfekt für ausgefallene Styles.
+        </p>
+      </article>
+
+      <!-- Marco -->
+      <article class="group card-shimmer bg-white rounded-2xl shadow-md hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+        <img src="barber3.jpg" alt="Barber Marco" class="w-40 h-40 rounded-full object-cover shadow mb-6" />
+        <h3 class="text-2xl font-brand mb-1">XYZ</h3>
+        <p class="text-sm text-gray-500 mb-4">Bart-Pro</p>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Perfekte Bartlinien & klassische Hot-Towel-Shaves.
+        </p>
+      </article>
+      <article class="group card-shimmer bg-white rounded-2xl shadow-md hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+        <img src="barber3.jpg" alt="Barber Marco" class="w-40 h-40 rounded-full object-cover shadow mb-6" />
+        <h3 class="text-2xl font-brand mb-1">XYZ</h3>
+        <p class="text-sm text-gray-500 mb-4">Bart-Pro</p>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Perfekte Bartlinien & klassische Hot-Towel-Shaves.
+        </p>
+      </article>
+      <article class="group card-shimmer bg-white rounded-2xl shadow-md hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+        <img src="barber3.jpg" alt="Barber Marco" class="w-40 h-40 rounded-full object-cover shadow mb-6" />
+        <h3 class="text-2xl font-brand mb-1">XYZ</h3>
+        <p class="text-sm text-gray-500 mb-4">Bart-Pro</p>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Perfekte Bartlinien & klassische Hot-Towel-Shaves.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
   <!-- Location -->
-  <section id="location" class="py-20 bg-gray-100 scroll-mt-32">
+  <section id="location" class="py-20 bg-white scroll-mt-32">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-brand text-center mb-12 text-gray-900">So findest du uns</h2>
       <div class="w-full h-80 rounded-2xl overflow-hidden shadow-lg">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.2661700769738!2d11.552993215821226!3d48.14083797922354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!
-          4f13.1!3m3!1m2!1s0x479e749eab496e05%3A0x7cfc5edb96e65e6c!2sSeidlstra%C3%9Fe%202A%2C%2080335%20M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
-          width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.2661700769738!2d11.552993215821226!3d48.14083797922354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e749eab496e05:0x7cfc5edb96e65e6c!2sSeidlstra%C3%9Fe%202A%2C%2080335%20M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
+                width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </section>
@@ -182,7 +222,7 @@
       <div class="flex justify-center gap-8 text-4xl">
         <a href="https://instagram.com/DEIN_SALON" class="hover:text-accent" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://tiktok.com/@DEIN_SALON" class="hover:text-accent" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/DEIN_SALON" class="hover:text-accent" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://facebook.com/DEIN_SALON" class="hover:text-accent" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       </div>
     </div>
   </section>
@@ -198,49 +238,28 @@
 
   <!-- Scripts -->
   <script>
-    // Burger / Close Toggle
-    const menuBtn  = document.getElementById('menu-btn');
-    const menuIcon = document.getElementById('menu-icon');
-    const menu     = document.getElementById('menu');
+    /* Hamburger */
+    const btn=document.getElementById('menu-btn'),icon=document.getElementById('menu-icon'),menu=document.getElementById('menu');
+    btn.addEventListener('click',()=>{menu.classList.toggle('hidden');
+      const open=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded',(!open));icon.classList.toggle('fa-bars');icon.classList.toggle('fa-xmark');});
 
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', (!expanded).toString());
-      menuIcon.classList.toggle('fa-bars');
-      menuIcon.classList.toggle('fa-xmark');
-    });
+    /* Link-Klick → Smooth Scroll + Overlay zu */
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{
+      const sec=document.querySelector(a.getAttribute('href'));
+      if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth'});}
+      if(innerWidth<768){menu.classList.add('hidden');btn.setAttribute('aria-expanded','false');
+        icon.classList.add('fa-bars');icon.classList.remove('fa-xmark');}
+    }));
 
-    // Smooth Scroll + Menü schließen bei Link-Klick (mobil)
-    document.querySelectorAll('#menu a').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        if (window.innerWidth < 768) {
-          menu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          menuIcon.classList.add('fa-bars');
-          menuIcon.classList.remove('fa-xmark');
-        }
-      });
-    });
-
-    // Navbar-Umschaltung
-    const navbar = document.getElementById('navbar');
-    const hero   = document.getElementById('hero');
-
-    new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
-        navbar.classList.remove('text-white', 'bg-transparent');
-        navbar.classList.add('bg-white/90', 'text-gray-900', 'shadow-md');
-      } else {
-        navbar.classList.add('text-white');
-        navbar.classList.remove('bg-white/90', 'text-gray-900', 'shadow-md');
-      }
-    }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 }).observe(hero);
+    /* Navbar Farbumschaltung */
+    const nav=document.getElementById('navbar'),hero=document.getElementById('hero');
+    new IntersectionObserver(([ent])=>{
+      nav.classList.toggle('bg-white/90',!ent.isIntersecting);
+      nav.classList.toggle('text-gray-900',!ent.isIntersecting);
+      nav.classList.toggle('shadow-md',!ent.isIntersecting);
+      nav.classList.toggle('text-white', ent.isIntersecting);
+    },{rootMargin:'-80px 0px 0px 0px'}).observe(hero);
   </script>
 
 </body>
