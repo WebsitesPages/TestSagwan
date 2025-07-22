@@ -2,13 +2,14 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HDHaircut | Barbershop München</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <!-- Google- & Icon-Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,59 +17,51 @@
         extend: {
           fontFamily: {
             brand: ['"Bebas Neue"', 'cursive'],
-            sans: ['Inter', 'sans-serif'],
+            sans : ['Inter', 'sans-serif']
           },
-          colors: { accent: '#eab308' },
-        },
-      },
+          colors: { accent: '#eab308' }
+        }
+      }
     };
   </script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Fix: verhindert seitliches Scrollen durch Overlay -->
-  <style>html,body{overflow-x:hidden;}</style>
+  <style>html,body{overflow-x:hidden}</style>
 </head>
-
 <body class="font-sans text-gray-900 scroll-smooth">
 
-  <!-- ============ NAVIGATION (neu kombiniert) ============ -->
-  <nav id="navbar"
-       class="fixed top-0 left-0 w-full z-50 backdrop-blur-sm transition-colors text-white">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<!-- ══════ NAVBAR (Logo + Burger + Desktop-Links) ══════ -->
+<nav id="navbar" class="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-4 backdrop-blur-sm transition-colors text-white">
+  <a href="#hero" class="text-3xl font-brand flex items-center hover:text-accent">
+    <span class="text-accent">HD</span><span class="ml-1">Haircut</span>
+  </a>
 
-      <!-- Logo -->
-      <a href="#hero" class="text-3xl font-brand flex items-center hover:text-accent">
-        <span class="text-accent">HD</span><span class="ml-1">Haircut</span>
-      </a>
+  <!-- Burger -->
+  <button id="menu-btn" class="md:hidden text-3xl" aria-expanded="false" aria-label="Menü">
+    <i id="menu-icon" class="fas fa-bars"></i>
+  </button>
 
-      <!-- Burger / Close -->
-      <button id="menu-btn"
-              class="md:hidden text-3xl focus:outline-none"
-              aria-expanded="false" aria-label="Menü umschalten">
-        <i id="menu-icon" class="fas fa-bars"></i>
-      </button>
+  <!-- Desktop-Menü -->
+  <ul class="hidden md:flex gap-8 uppercase text-sm font-medium">
+    <li><a href="#about"    class="hover:text-accent">Über Uns</a></li>
+    <li><a href="#pricing"  class="hover:text-accent">Preise</a></li>
+    <li><a href="#reviews"  class="hover:text-accent">Bewertungen</a></li>
+    <li><a href="#team"     class="hover:text-accent">Team</a></li>
+    <li><a href="#location" class="hover:text-accent">Anfahrt</a></li>
+    <li><a href="#social"   class="hover:text-accent">Folge Uns</a></li>
+  </ul>
+</nav>
 
-      <!-- Gemeinsame UL: Desktop = inline, Mobile = Overlay -->
-      <ul id="menu"
-          class="hidden fixed inset-0 z-50 pt-24 flex flex-col items-center gap-8
-                 bg-white/95 text-gray-900 uppercase text-xl font-medium tracking-wide
-                 md:static md:flex md:flex-row md:gap-8 md:bg-transparent md:text-sm md:pt-0 md:ml-auto">
-
-        <li><a href="#about"    class="block py-2 hover:text-accent">Über&nbsp;Uns</a></li>
-        <li><a href="#pricing"  class="block py-2 hover:text-accent">Preise</a></li>
-        <li><a href="#reviews"  class="block py-2 hover:text-accent">Bewertungen</a></li>
-        <li><a href="#team"  class="block py-2 hover:text-accent">Team</a></li>
-        <li><a href="#location" class="block py-2 hover:text-accent">Anfahrt</a></li>
-        <li><a href="#social"   class="block py-2 hover:text-accent">Folge&nbsp;Uns</a></li>
-      </ul>
-
-    </div>
-  </nav>
-  <!-- ============ /NAVIGATION ============ -->
-
-  <!-- Hero -->
+<!-- ══════ MOBILES OVERLAY-MENÜ ══════ -->
+<div id="mobile-menu" class="fixed inset-0 z-[9999] hidden bg-white flex flex-col items-center justify-center space-y-8 text-xl uppercase font-medium tracking-wide">
+  <a href="#about"    class="block w-full text-center py-2 hover:text-accent">Über Uns</a>
+  <a href="#pricing"  class="block w-full text-center py-2 hover:text-accent">Preise</a>
+  <a href="#reviews"  class="block w-full text-center py-2 hover:text-accent">Bewertungen</a>
+  <a href="#team"     class="block w-full text-center py-2 hover:text-accent">Team</a>
+  <a href="#location" class="block w-full text-center py-2 hover:text-accent">Anfahrt</a>
+  <a href="#social"   class="block w-full text-center py-2 hover:text-accent">Folge Uns</a>
+</div>
+  
+   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white">
     <img src="Barbershop.png" alt="Barbershop Interior" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/70"></div>
@@ -235,32 +228,47 @@
       Erstellt von <a href="https://www.webas-websites.com" class="hover:text-accent">Webas-Websites</a> © 2025
     </div>
   </footer>
+  
+  <!-- ══════ SCRIPTS ══════ -->
+<script>
+/* ==== Mobile-Menü auf/zu ==== */
+const btn   = document.getElementById('menu-btn');
+const icon  = document.getElementById('menu-icon');
+const menu  = document.getElementById('mobile-menu');
 
-  <!-- Scripts -->
-  <script>
-    /* Hamburger */
-    const btn=document.getElementById('menu-btn'),icon=document.getElementById('menu-icon'),menu=document.getElementById('menu');
-    btn.addEventListener('click',()=>{menu.classList.toggle('hidden');
-      const open=btn.getAttribute('aria-expanded')==='true';
-      btn.setAttribute('aria-expanded',(!open));icon.classList.toggle('fa-bars');icon.classList.toggle('fa-xmark');});
+btn.addEventListener('click', () => {
+  const open = menu.classList.toggle('hidden');     // toggle ⇒ Rückgabewert „is now hidden?“
+  btn.setAttribute('aria-expanded', (!open).toString());
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-xmark');
+  document.body.style.overflow = open ? 'auto' : 'hidden'; // Scroll sperren, wenn offen
+});
 
-    /* Link-Klick → Smooth Scroll + Overlay zu */
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{
-      const sec=document.querySelector(a.getAttribute('href'));
-      if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth'});}
-      if(innerWidth<768){menu.classList.add('hidden');btn.setAttribute('aria-expanded','false');
-        icon.classList.add('fa-bars');icon.classList.remove('fa-xmark');}
-    }));
+/* Link-Klick im mobilen Menü → Smooth-Scroll + Menü schließen */
+menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+    // Menü zu
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark');
+    document.body.style.overflow = 'auto';
+  });
+});
 
-    /* Navbar Farbumschaltung */
-    const nav=document.getElementById('navbar'),hero=document.getElementById('hero');
-    new IntersectionObserver(([ent])=>{
-      nav.classList.toggle('bg-white/90',!ent.isIntersecting);
-      nav.classList.toggle('text-gray-900',!ent.isIntersecting);
-      nav.classList.toggle('shadow-md',!ent.isIntersecting);
-      nav.classList.toggle('text-white', ent.isIntersecting);
-    },{rootMargin:'-80px 0px 0px 0px'}).observe(hero);
-  </script>
+/* ==== Nav-Farbwechsel, wenn Hero nicht mehr im Viewport ==== */
+const nav  = document.getElementById('navbar');
+const hero = document.getElementById('hero');
+
+new IntersectionObserver(([entry]) => {
+  const top = entry.isIntersecting;
+  nav.classList.toggle('bg-white/90', !top);
+  nav.classList.toggle('text-gray-900', !top);
+  nav.classList.toggle('shadow-md',     !top);
+  nav.classList.toggle('text-white',     top);
+}, {rootMargin: '-80px 0px 0px 0px'}).observe(hero);
+</script>
 
 </body>
 </html>
